@@ -1391,8 +1391,8 @@ impl Command {
     /// # ;
     /// ```
     #[must_use]
-    pub fn display_name(mut self, name: impl Into<Str>) -> Self {
-        self.display_name = Some(name.into());
+    pub fn display_name(mut self, name: impl IntoResettable<Str>) -> Self {
+        self.display_name = name.into_resettable().into_option();
         self
     }
 
@@ -1412,8 +1412,8 @@ impl Command {
     /// ```
     /// [`crate_authors!`]: ./macro.crate_authors!.html
     #[must_use]
-    pub fn author(mut self, author: impl Into<Str>) -> Self {
-        self.author = Some(author.into());
+    pub fn author(mut self, author: impl IntoResettable<Str>) -> Self {
+        self.author = author.into_resettable().into_option();
         self
     }
 
@@ -1567,8 +1567,8 @@ impl Command {
     /// ```
     /// [`crate_version!`]: ./macro.crate_version!.html
     #[must_use]
-    pub fn version(mut self, ver: impl Into<Str>) -> Self {
-        self.version = Some(ver.into());
+    pub fn version(mut self, ver: impl IntoResettable<Str>) -> Self {
+        self.version = ver.into_resettable().into_option();
         self
     }
 
@@ -1595,8 +1595,8 @@ impl Command {
     /// ```
     /// [`crate_version!`]: ./macro.crate_version!.html
     #[must_use]
-    pub fn long_version(mut self, ver: impl Into<Str>) -> Self {
-        self.long_version = Some(ver.into());
+    pub fn long_version(mut self, ver: impl IntoResettable<Str>) -> Self {
+        self.long_version = ver.into_resettable().into_option();
         self
     }
 
